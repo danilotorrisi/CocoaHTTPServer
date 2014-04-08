@@ -2414,6 +2414,18 @@ static NSMutableArray *recentNonces;
 		doneSendingResponse = YES;
 	}
 	
+    // Calculate the progress.
+    CGFloat progress = (float)httpResponse.offset /(float)httpResponse.contentLength;
+    
+    
+    // Post a not.
+    [[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionDidUpdateProgressNotification
+                                                        object:@{HTTPConnectionProgressKey: @(progress),
+                                                                 HTTPConnectionRequestAction: [[request url] lastPathComponent],
+                                                                 HTTPConnectionRequestMethod: [request method]}];
+	
+
+	
 	if (doneSendingResponse)
 	{
 		// Inform the http response that we're done

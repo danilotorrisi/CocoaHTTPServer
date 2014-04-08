@@ -7,7 +7,13 @@
 @protocol HTTPResponse;
 
 
+// This notification will be update observers about the progress of the connection. The object dictioanry will
+// contain a HTTPConnectionProgressKey object which represent the progress ( 0.0 -> 1.0 ).
+#define HTTPConnectionDidUpdateProgressNotification @"HTTPConnectionDidUpdateProgressNotification"
 #define HTTPConnectionDidDieNotification  @"HTTPConnectionDidDie"
+#define HTTPConnectionProgressKey @"HTTPConnectionProgressKey"
+#define HTTPConnectionRequestAction @"HTTPConnectionRequestAction"
+#define HTTPConnectionRequestMethod @"HTTPConnectionRequestMethod"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
